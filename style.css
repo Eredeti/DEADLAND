@@ -1,0 +1,43 @@
+body{
+  background : lightgrey;
+}
+
+#char_1 {
+  position:absolute;
+  border : 2px solid black;
+  width: 50px;
+  height: 50px;
+  background-color: red;
+  top: 100px;
+  left: 100px;
+}
+
+#char_2 {
+  position: absolute;
+  border : 2px solid black;
+  width: 50px;
+  height: 50px;
+  background-color: blue;
+  top: 100px;
+  left: 300px;
+}
+
+#mouse {
+  position : absolute;
+  border: 2px;
+  padding: 10px;
+  background-color: green;
+  top: 0px;
+  right: 0px;
+}
+
+.block{
+  display: flex;
+  justify-content: center; /* centre horizontalement */
+  align-items: center;     /* centre verticalement */
+  font-size: 10px;
+  position : absolute;
+  background-color : cyan;
+  border: 1px solid black;
+  right:0px; 
+}
