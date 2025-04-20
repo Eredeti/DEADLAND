@@ -4,12 +4,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const speed = 7;
     const gravity = 1.5;
-    const jumpStrength = 18;
+    const jumpStrength = 20;
     const keysPressed = {};
 
     let posY1 = parseInt(getComputedStyle(char1).top, 10);
     let posX1 = parseInt(getComputedStyle(char1).left, 10);
-    let posY2 = parseInt(getComputedStyle(char2).top, 10);
+    let posY2 = parseInt(getComputedStyle(char2).top, 10); 
     let posX2 = parseInt(getComputedStyle(char2).left, 10);
 
     let velocityY1 = 0;
@@ -51,16 +51,21 @@ document.addEventListener("DOMContentLoaded", () => {
         if (verif_hit(posX1, posY1 + velocityY1)) {
             posY1 += velocityY1;
         } else {
-            // Si collision, on arrête la chute
+            if (velocityY1 > 0) {
+                // Collision avec le sol
+                isJumping1 = false;
+            }
+            // Dans tous les cas on stoppe la vitesse Y
             velocityY1 = 0;
-            isJumping1 = false;
         }
 
         if (verif_hit(posX2, posY2 + velocityY2)) {
             posY2 += velocityY2;
         } else {
+            if (velocityY2 > 0) {
+                isJumping2 = false;
+            }
             velocityY2 = 0;
-            isJumping2 = false;
         }
 
         // Appliquer le style
@@ -70,7 +75,34 @@ document.addEventListener("DOMContentLoaded", () => {
         char2.style.left = posX2 + "px";
 
         requestAnimationFrame(update);
+
+        //système de lumière 
+        //updateDarkness();
     }
+
+
+//     function updateDarkness() {
+//         const lightRadius = 100;
+
+//         const center1X = posX1 + 25;
+//         const center1Y = posY1 + 25;
+//         const center2X = posX2 + 25;
+//         const center2Y = posY2 + 25;
+
+//         const darkness = document.getElementById("darkness");
+
+//         darkness.style.background = `
+//     radial-gradient(circle ${lightRadius}px at ${center1X}px ${center1Y}px, 
+//     rgba(0, 0, 0, 0) 0%,
+//     rgba(0,0,0,0.3) 60%,
+//     rgba(0,0,0,0.6) 100%),
+//     radial-gradient(circle ${lightRadius}px at ${center2X}px ${center2Y}px,
+//     rgba(0, 0, 0, 0) 0%,
+//     rgba(0,0,0,0.3) 60%,
+//     rgba(0,0,0,0.6) 100%)
+// `;
+
+//     }
 
     requestAnimationFrame(update);
 });
