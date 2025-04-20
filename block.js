@@ -1,11 +1,3 @@
-const tab_blocks = [
-[200,200,50,200],
-[300,200,100,50]
-];
-
-//tableau d'objet block
-var tab_block_obj = [];
-
 //Définition objet block
 var block = {
     pos_x : 0,
@@ -26,8 +18,14 @@ var block = {
     }    
 }
 
-/*arcours du tableau avec les coordonnées et longueurs bloc
-pour initier le tableau tab_block_obj et les définir un par un*/
+const tab_blocks = [
+[200,200,50,200],
+[300,200,100,50],
+[50,650,800,20]
+];
+
+//tableau d'objet block
+var tab_block_obj = [];
 
 // Parcours du tableau pour créer chaque bloc
 tab_blocks.forEach((coords) => {
@@ -52,7 +50,7 @@ tab_blocks.forEach((coords) => {
     new_block_dom.style.height = new_block.height + 'px';
 
     // Ajout dans le DOM et dans le tableau des objets
-    document.body.appendChild(new_block_dom);
+    document.getElementById("world").appendChild(new_block_dom);
     tab_block_obj.push(new_block);
 });
 

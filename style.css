@@ -4,22 +4,22 @@ body{
 
 #char_1 {
   position:absolute;
-  border : 2px solid black;
+  border : 5px solid black;
   width: 50px;
   height: 50px;
   background-color: red;
-  top: 100px;
-  left: 100px;
+  top: 150px;
+  left: 250px;
 }
 
 #char_2 {
   position: absolute;
-  border : 2px solid black;
+  border : 5px solid black;
   width: 50px;
   height: 50px;
   background-color: blue;
-  top: 100px;
-  left: 300px;
+  top: 150px;
+  left: 250px;
 }
 
 #mouse {
@@ -40,4 +40,50 @@ body{
   background-color : cyan;
   border: 1px solid black;
   right:0px; 
+}
+
+.border{
+  display: flex;
+  justify-content: center; /* centre horizontalement */
+  align-items: center;     /* centre verticalement */
+  font-size: 10px;
+  position : absolute;
+  background-color : lime;
+  border: 1px solid black;
+  right:0px; 
+}
+
+.viewport {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  border: 2px solid #000;
+  margin-bottom: 20px;
+}
+
+.world {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  justify-content: center; /* Centre horizontalement */
+  align-items: center;     /* Centre verticalement */
+  background: repeating-linear-gradient(
+    45deg,
+    #e0e0e0,
+    #e0e0e0 20px,
+    #c0c0c0 20px,
+    #c0c0c0 40px
+  ); /* Motif simple */
+}
+
+/* retirer les bords */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  justify-content: center; /* Centre horizontalement */
+  align-items: center; 
 }
